@@ -10,7 +10,7 @@ app = Flask(__name__)
 # --------------------------------------------------
 
 df = pd.read_csv("crop_recommendation_dataset.csv")
-model = joblib.load("crop_recommendation_model.pkl")
+model = joblib.load("crop_recommendation_model_compressed.pkl")
 
 
 # --------------------------------------------------
