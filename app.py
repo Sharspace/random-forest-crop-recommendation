@@ -10,7 +10,7 @@ app = Flask(__name__)
 # --------------------------------------------------
 
 df = pd.read_csv("crop_recommendation_dataset.csv")
-model = joblib.load("crop_recommendation_model_compressed.pkl")
+model = None
 
 
 # --------------------------------------------------
@@ -597,6 +597,9 @@ def home():
     if request.method == "POST":
 
         values = request.form.to_dict()
+        global model
+        if model is None:
+            model = joblib.load("crop_recommendation_model_compressed.pkl")
 
 
         input_data = pd.DataFrame({
